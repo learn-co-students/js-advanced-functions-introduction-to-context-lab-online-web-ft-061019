@@ -166,7 +166,7 @@ describe("The payroll system", function () {
     })
 
     describe("allWagesFor", function () {
-      it("calculates that the employee earned 378 dollars", function () {
+      it("calculates that the employee earned 648 dollars", function () {
         cRecord = createEmployeeRecord(["Julius", "Caesar", "General", 27])
         // Earns 324
         updatedBpRecord = createTimeInEvent(cRecord, "0044-03-14 0900")
@@ -175,7 +175,7 @@ describe("The payroll system", function () {
         updatedBpRecord = createTimeInEvent(cRecord, "0044-03-15 0900")
         updatedBpRecord = createTimeOutEvent(cRecord, "0044-03-15 1100")
         // 324 + 54
-        expect(allWagesFor(cRecord)).to.equal(378)
+        expect(allWagesFor(cRecord)).to.equal(648)
       })
     })
   })
@@ -186,7 +186,7 @@ describe("The payroll system", function () {
     })
 
     describe("calculatePayroll", function () {
-      it("calculates that the employees earned 770 dollars", function () {
+      it("calculates that the employees earned 880 dollars", function () {
         let rRecord = createEmployeeRecord(["Rafiki", "", "Aide", 10])
         let sRecord = createEmployeeRecord(["Simba", "", "King", 100])
 
@@ -314,8 +314,8 @@ describe("The payroll system", function () {
               timesOutRecordRow[1].forEach(function(timeOutStamp){
                 createTimeOutEvent(rec, timeOutStamp)
               })
-            }) 
-            expect(calculatePayroll(employeeRecords)).to.eql(11880)
+            })
+            expect(calculatePayroll(employeeRecords)).to.eql(11775)
           })
         })
       })
